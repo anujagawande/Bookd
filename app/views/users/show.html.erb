@@ -1,0 +1,46 @@
+<!--Author: gawande1-->
+<% provide(:title, 'Profile')%>
+
+<main role="main" class="container">
+
+    <h1><b><%= @user.username %></b></h1>
+
+    <div style="width:250px; height=250px">
+        <% if @user.picture.attached? %>
+            <%= image_tag(@user.picture, style:'width:100%') %>
+        <% else %>
+            <%= image_tag("comment_placeholder.jpg", style:'width:100%') %>
+        <% end %>
+    </div>
+
+    <h2><b>Profile Rating</b>  <%= @user.profile_rating %> </h2>
+
+    <p>
+        <b>Age:</b> <%= @user.age %>
+    </p>
+
+    <p>
+        <b>Career field:</b> <%= @user.career %>
+    </p>
+
+    <p>
+        <b>Hobbies:</b> <%= @user.hobbies %>
+    </p>
+
+    <p>
+        <b>Favorite book genre:</b> <%= @user.fav_genre %>
+    </p>
+
+    <p>
+        <b>Books recommended by you: </b> <%= @user.recommendations %>
+    </p>
+
+    <p>
+        <b>Suggested books for you others:</b> <%= @user.suggested %>
+    </p>
+
+    <p>
+        <%= link_to "Back", :back %>
+    </p>
+</main><!-- /.container -->
+

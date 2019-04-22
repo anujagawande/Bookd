@@ -1,0 +1,28 @@
+# == Schema Information
+#
+# Table name: comments
+#
+#  id            :integer          not null, primary key
+#  message       :text
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  discussion_id :integer
+#  person_id     :integer
+#  user_id       :integer
+#
+# Indexes
+#
+#  index_comments_on_discussion_id  (discussion_id)
+#  index_comments_on_person_id      (person_id)
+#  index_comments_on_user_id        (user_id)
+#
+
+one:
+  message: "Awesome Book."
+  user: one
+  discussion: one
+
+two:
+  message: "I agree with you."
+  user: one
+  discussion: one

@@ -1,0 +1,37 @@
+# == Schema Information
+#
+# Table name: book_clubs
+#
+#  id          :integer          not null, primary key
+#  description :text
+#  location    :string
+#  meet_date   :date
+#  members     :text
+#  name        :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  book_id     :integer
+#
+# Indexes
+#
+#  index_book_clubs_on_book_id  (book_id)
+#
+#Author: Anuja
+
+one:
+  name: The Book Club
+  members: Anuja Gawande
+  description: History lovers, rejoice!
+  meet_date: 2019-11-12
+  location: History Hall 221, University of Memphis
+  book: one
+
+two:
+  name: Our Shared Self
+  members: Anuja Gawande
+  description: A feminist book club which supports to read and engage feminist literature.
+  meet_date: 2019-11-12
+  location: Elite library, Memphis, TN
+  book: two
+
+

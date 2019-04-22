@@ -1,0 +1,61 @@
+<!--Author: mtcskwsk-->
+<main role="main" class="container">
+    <div style="width:75%">
+        <h1><b><%= @book.title %></b></h1>
+
+        <p>
+            <%= @book.description %>
+        </p>
+
+        <p>
+            Genre: <%= @book.genre %>
+        </p>
+
+        <p>
+            Review: <%= @book.review %>
+        </p>
+
+        <p>
+            Rating: <%= @book.rating %> / 10
+        </p>
+
+        <p>
+            Book ID: <%= @book.id %>
+        </p>
+
+        <% if defined?(current_person.user) && (current_person.user != nil) %>
+            <table cellpadding="5um">
+                <tr>
+                <td><%= link_to "Create New Discussion", new_discussion_path(:book => @book.id), :method => :get, :class => "btn btn-primary" %></td>
+                <% if defined?(@book.bookClub) && (@book.bookClub != nil)%>
+                    <td><%= link_to "Join Book Club", book_club_path(@book.id), :method => :get, :class => "btn btn-primary" %></td>
+                <%else%>
+                    <td><%= link_to "Create Book Club", new_book_club_path(:book => @book.id), :method => :get, :class => "btn btn-primary" %></td>
+                <%end%>
+                </tr>
+            </table>
+        <%else%>
+            <%= link_to "Create a public profile to participate in discussions and book clubs.", new_user_path, :method => :get, :class => "btn btn-primary" %>        
+        <%end%>
+        <div>       
+            <h2><%= @book.title %> Discussions</h2>
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">Topic</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @book.discussions.each do |discussion|%>
+                        <tr>
+                            <td><%= link_to(discussion.title, discussion_path(discussion.id)) %></td>
+                            <td><%= discussion.message %></td>
+                        </tr>
+                    <% end %>
+                </tbody>
+                </table>
+        </div>
+    </div>
+
+</main><!-- /.container -->

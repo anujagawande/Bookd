@@ -1,0 +1,24 @@
+<!--Author: mcbrynt1-->
+<main raole="main" class="container">
+
+
+    <div style="width:50%">
+        <h1><%= @book_club.name %></h1>
+        <table>
+            <%= form_with model: @book_club, local: true do |form| %>
+                <div class="field">
+                    <i>Add name to list </i>
+                    <%= form.label :members %>
+                    <%= form.text_field :members, class: 'form-control' %>
+                </div>
+                
+                <div class="actions">
+                    <%= form.submit 'Update Members', class: 'btn btn-primary' %>
+                </div>
+            <% end %>
+        </table>
+    </div>
+
+
+
+</main><!-- /.container -->

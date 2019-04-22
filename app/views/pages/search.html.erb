@@ -1,0 +1,7 @@
+<!--Author: mcbrynt1-->
+<h1>Search Books </h1>
+
+<%= form_tag(books_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Title, Genre, or Rating" %>
+    <%= submit_tag "Search", :name => nil, :class => "btn btn-primary" %>
+<% end %>

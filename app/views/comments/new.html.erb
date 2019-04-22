@@ -1,0 +1,23 @@
+<!--Author: mtcskwsk-->
+<main role="main" class="container">
+
+    <h1>New Comment</h1>
+    <p>Title: <%= @discussion.title %></p>
+    <p>Topic: <%= @discussion.message %></p>
+
+    <div style="width:50%;">
+        <%= form_with model: @comment, local: true do |form| %>
+            <%= form.hidden_field :user_id, value: current_person.user.id %>
+            <%= form.hidden_field :discussion_id, value: @discussion.id %>
+
+            <div class="field">
+                <%= form.label :message, 'Message' %>
+                <%= form.text_area :message, class: 'form-control' %>
+            </div>
+            <div class="actions">
+                <%= form.submit 'Post Comment', class: 'btn btn-primary' %>
+            </div>
+        <% end %>
+    </div>
+
+</main><!-- /.container -->

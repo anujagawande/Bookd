@@ -1,0 +1,50 @@
+<main role="main" class="container">
+
+    <h1><b><%= link_to Book.find(@discussion.book_id).title, book_path(@discussion.book_id)  %> Discussion</b></h1>
+    <h2>Author <%= link_to "Profile", user_path(:user => @discussion.user_id), :method => :get, :class => "btn btn-primary" %></h2>
+
+
+    <p>Title: <%= @discussion.title %></p>
+    <p>Topic: <%= @discussion.message %></p>
+
+
+    <% if defined?(current_person.user) && (current_person.user != nil) %>
+        <% @user = current_person.user.id %>
+        <h3>Comments <%= link_to "New Comment", new_comment_path(:discussion => @discussion.id), :method => :get, :class => "btn btn-primary" %></h3>
+    <%else%>
+        <%= link_to "Create a public profile to comment on discussions", new_user_path, :method => :get, :class => "btn btn-primary" %>
+    <%end%>
+
+        <table class="table table-sm">
+        <thead>
+            <tr>
+                <th scope="col">User</th>
+                <th scope="col">Message</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @discussion.comments.each do |comment|%>
+                <tr>
+                <td>
+                    <div style="width:50px; height=50px; float=left">
+                        <% if comment.user.picture.attached? %>
+                            <%= image_tag(comment.user.picture, style:'width:100%') %>
+                        <% else %>
+                            <%= image_tag("comment_placeholder.jpg", style:'width:100%') %>
+                        <% end %>
+                    </div>
+                    <%= link_to(User.find(comment.user_id).username, user_path(comment.user_id))%>
+
+                </td>
+                <td><%= comment.message %></td>
+                <td>
+                    <% if current_person.user != nil && current_person.user.id == comment.user_id %>
+                        <%= link_to 'Edit', edit_comment_path(comment) %> | 
+                        <%= link_to 'Delete', comment_path(comment, :discussion => @discussion.id), method: :delete %>
+                    <%end%>
+                </td>
+                </tr>
+            <% end %>
+        </tbody>
+        </table>
+</main><!-- /.container -->

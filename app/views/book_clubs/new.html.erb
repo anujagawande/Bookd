@@ -1,0 +1,48 @@
+<!--Author: mcbrynt1-->
+<main raole="main" class="container">
+
+
+    <div style="width:50%">
+        <h1>New Book Club</h1>
+        <table>
+            <%= form_with model: @book_club, local: true do |form| %>
+                <div class="field">
+                    <%= form.label :name %>
+                    <%= form.text_field :name, class: 'form-control' %>
+                </div>
+                
+                <div class="field">
+                    <%= form.label :location %>
+                    <%= form.text_area :location, class: 'form-control' %>
+                </div>
+                
+                <div class="field">
+                    <%= form.label :meet_date %>
+                    <%= form.text_field :meet_date, class: 'form-control' %>
+                </div>
+                
+                <div class="field">
+                    <%= form.label :members %>
+                    <%= form.text_field :members, class: 'form-control' %>
+                </div>
+                
+                <div class="field">
+                    <%= form.label :description %>
+                    <%= form.text_area :description, class: 'form-control' %>
+                </div>
+
+                <div class="field">
+                    <%= form.label :book_id  %> <i>(Must provide book ID.  Can find ID on book page)</i>
+                    <%= form.text_area :book_id, class: 'form-control' %>
+                </div>
+                
+                <div class="actions">
+                    <%= form.submit 'Create Book Club', class: 'btn btn-primary' %>
+                </div>
+            <% end %>
+        </table>
+    </div>
+
+
+
+</main><!-- /.container -->

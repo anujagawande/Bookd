@@ -1,0 +1,59 @@
+<!--Author: mtcskwsk-->
+<main role="main" class="container">
+
+    <h1>Edit Profile</h1>
+
+    <div style="width:50%;">
+        <%= form_with model: @user, local: true do |form| %>
+            <%= form.hidden_field :person_id, value: current_person.id %>
+
+            <div class="field">
+                <%= form.label :username, 'Edit Name' %>
+                <%= form.text_field :username, class: 'form-control' %>
+            </div>
+            <br>
+            <div class="field">
+                <div style="width:250px; height=250px">
+                 <%  if @user.picture.attached? %>
+                        <%= image_tag(@user.picture, style:'width:100%') %>
+                    <% else %>
+                        <%= image_tag "placeholder.png" %>
+                    <% end %>
+                </div>  
+
+                <%= form.label :picture, 'Edit Profile Picture' %>
+                <%= form.file_field :picture %>
+            </div>
+            <br>
+            <div class="field">
+                <%= form.label :age, 'Edit Age' %>
+                <%= form.text_field :age, class: 'form-control' %>
+            </div>
+            <br>
+            <div class="field">
+                <%= form.label :career, 'Edit Career Field' %>
+                <%= form.text_field :career, class: 'form-control' %>
+            </div>
+            <br>
+            <div class="field">
+                <%= form.label :hobbies, 'Edit Hobbies' %>
+                <%= form.text_field :hobbies, class: 'form-control' %>
+            </div>
+            <br>
+            <div class="field">
+                <%= form.label :fav_genre, 'Edit Favorite Genre' %>
+                <%= form.text_field :fav_genre, class: 'form-control' %>
+            </div>
+            <br>
+            <div class="field">
+                <%= form.label :recommendations, 'Edit Recommended Books' %>
+                <%= form.text_field :recommendations, class: 'form-control' %>
+            </div>
+            <br>
+            <div class="actions">
+                <%= form.submit 'Update Profile', class: 'btn btn-primary' %>
+            </div>
+        <% end %>
+    </div>
+
+</main><!-- /.container -->

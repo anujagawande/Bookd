@@ -1,0 +1,44 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  age             :integer
+#  career          :string
+#  fav_genre       :string
+#  hobbies         :text
+#  profile_rating  :integer
+#  recommendations :text
+#  suggested       :text
+#  username        :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  bookClub_id     :integer
+#  person_id       :integer
+#
+# Indexes
+#
+#  index_users_on_bookClub_id  (bookClub_id)
+#  index_users_on_person_id    (person_id)
+#
+# Author: Anuja
+
+one:
+  fav_genre: "Mystery"
+  age: '21'
+  hobbies: "Painting"
+  career: "IT"
+  recommendations: "Twilight"
+  suggested: "Jobs"
+  profile_rating: '5'
+  bookClub: one
+
+two:
+  fav_genre: "Horror"
+  age: '24'
+  hobbies: "Hunting"
+  career: "IT"
+  recommendations: "The Haunting of Hill House"
+  suggested: "The Zombie Apocalypse"
+  profile_rating: '10'
+  bookClub: one

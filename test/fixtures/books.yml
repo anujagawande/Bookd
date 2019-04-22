@@ -1,0 +1,28 @@
+# == Schema Information
+#
+# Table name: books
+#
+#  id          :integer          not null, primary key
+#  description :text
+#  genre       :string
+#  rating      :integer
+#  review      :text
+#  title       :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+#Author: Anuja
+
+one:
+  title: "A people's History of the United States"
+  description: "A people's history of the United States"
+  genre: "History"
+  rating: '3'
+  review: "Love it!"
+
+two:
+  title: "The Color Purple"
+  description: "The Color Purple is a 1982 novel."
+  genre: "History"
+  rating: '4'
+  review: "Nice"

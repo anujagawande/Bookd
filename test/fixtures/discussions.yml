@@ -1,0 +1,39 @@
+# == Schema Information
+#
+# Table name: discussions
+#
+#  id         :integer          not null, primary key
+#  message    :text
+#  title      :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  book_id    :integer
+#  person_id  :integer
+#  user_id    :integer
+#
+# Indexes
+#
+#  index_discussions_on_book_id    (book_id)
+#  index_discussions_on_person_id  (person_id)
+#  index_discussions_on_user_id    (user_id)
+#
+
+# Indexes
+#
+#  index_discussions_on_book_id  (book_id)
+#  index_discussions_on_user_id  (user_id)
+#  index_discussions_on_person_id      (person_id)
+#
+# Author: Anuja
+
+one:
+  title: "Theme of the book"
+  message: "Does anyone know what the theme of the book is?"
+  book: one
+  user: one
+
+two:
+  title: "Chapter 7, Death of the hero"
+  message: "In chapter 7, the protagonist is shot by his girlfiend."
+  book: two
+  user: one

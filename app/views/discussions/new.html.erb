@@ -1,0 +1,26 @@
+<!--Author: mkjhnsn3-->
+<main role="main" class="container">
+        
+    <div style="width:50%">
+    <h1>New Discussion</h1>
+        <table>
+            <%= form_with model: @discussion, local: true do |form| %>
+                <%= form.hidden_field :book_id, value: @book %>
+
+                <div class="field">
+                    <%= form.label :title %>
+                    <%= form.text_field :title, class: 'form-control' %>
+                </div>
+                <br>
+                <div class="field">
+                    <%= form.label :message %>
+                    <%= form.text_area :message, class: 'form-control' %>
+                </div>
+                <br>
+                <div class="actions">
+                <%= form.submit 'Create Discussion', class: 'btn btn-primary' %>
+            </div>
+            <% end %>
+        </table>
+
+</main><!-- /.container -->
